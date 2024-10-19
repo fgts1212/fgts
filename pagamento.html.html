@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Pagamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #000000, rgb(10, 0, 151)); /* Degradê de preto para azul */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url('https://logospng.org/download/governo-federal/governo-federal-brasil-4096.png');
+        background-size: cover;
+        background-position: center;
+        filter: blur(0px); /* Add a blur effect to the background image */
+        }
+
+        .container {
+            background-color: #1e1e1e; 
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .amount {
+            font-size: 48px;
+            color: #00aaff; /* Azul claro */
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #00aaff; /* Azul claro */
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #cccccc; /* Cinza claro */
+            margin-bottom: 30px;
+        }
+
+        .btn-pagar {
+            background-color: #0056b3; /* Azul escuro */
+            color: #ffffff; /* Branco */
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-pagar:hover {
+            background-color: #003d80; /* Azul ainda mais escuro */
+        }
+
+        .key-container {
+            margin-top: 20px;
+        }
+
+        .key-label {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .key {
+            background-color: #333333; /* Cinza escuro */
+            color: #ffffff; /* Branco */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            word-break: break-all;
+            margin-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .btn-copy {
+            background-color: #007bff; /* Azul */
+            color: #ffffff; /* Branco */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-copy:hover {
+            background-color: #0056b3; /* Azul escuro */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="amount">R$58,01</div> <!-- Valor em destaque -->
+    <h1>Pague aqui a taxa do seu FGTS e recolha o saldo!</h1>
+    <p>Finalize o pagamento para continuar o processo.</p>
+
+    <div class="key-container">
+        <div class="key-label">Chave PIX:</div>
+        <div id="pix-key" class="key">mectrefepods@gmail.com</div>
+        <button class="btn-copy" onclick="copyKey()">Copiar Chave</button>
+        <button class="btn-pagar">Pagar</button>
+    </div>
+</div>
+
+<script>
+    function copyKey() {
+        const keyElement = document.getElementById('pix-key');
+        const keyText = keyElement.textContent;
+
+        navigator.clipboard.writeText(keyText).then(() => {
+            alert('Chave PIX copiada para a área de transferência!');
+        }).catch(err => {
+            alert('Falha ao copiar a chave PIX.');
+            console.error('Erro ao copiar a chave PIX: ', err);
+        });
+    }
+</script>
+
+</body>
+</html>
